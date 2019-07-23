@@ -1,6 +1,6 @@
 <template>
   <div id="ListContainer">
-    <li :style="[childData.status=='BeChosed'?styleobj:{}, listToChild.map(i=>i.value).indexOf(childData.value)%2==1?styleobj1:{} ]"><input type="checkbox" @click="changeSelectStatus" :checked="childData.status=='BeChosed'" >{{childData.value}}</li>
+    <li :style="[childData.status=='BeChosed'?styleobj:{}, this.$store.state.List.map(i=>i.value).indexOf(childData.value)%2==1?styleobj1:{} ]"><input type="checkbox" @click="changeSelectStatus" :checked="childData.status=='BeChosed'" >{{childData.value}}</li>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
       this.$store.commit('changeStatus',this.childData)
     }
   },
-  props:['childData',"listToChild"]
+  props:['childData']
 }
 </script>
 <style>

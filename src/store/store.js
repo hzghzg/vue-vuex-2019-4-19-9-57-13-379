@@ -31,6 +31,13 @@ export default new Vuex.Store({
                 state.List[index].status="Notchosed";
                 state.reservedList[index].status="Notchosed";
             }
+        },
+        displayList(state,completeStatus){
+            state.List=state.reservedList;
+            if(completeStatus=="active")
+            state.List=state.List.filter(item=>item.status=="Notchosed")
+            else if(completeStatus=="complete")
+            state.List=state.List.filter(item=>item.status=="BeChosed")
         }
     }
 })

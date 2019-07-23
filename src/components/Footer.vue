@@ -15,13 +15,13 @@ export default {
   
   methods:{
     displayAll(){
-        this.$emit("childStatus","all")
+      this.$store.commit('displayList',"all")
     },
     displayActive(){
-        this.$emit("childStatus","active")
+      this.$store.commit('displayList',"active")
     },
     displayComplete(){
-        this.$emit("childStatus","complete")
+      this.$store.commit('displayList',"complete")
     }
   },
   components: {
