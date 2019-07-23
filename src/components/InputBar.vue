@@ -18,8 +18,6 @@ export default {
            let obj={status:"Notchosed",value:this.text}
            this.$store.commit("addDataToList",obj)
       }
-  },
-  components: {
   }
 }
 </script>

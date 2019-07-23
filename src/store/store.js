@@ -33,7 +33,7 @@ export default new Vuex.Store({
             }
         },
         displayList(state,completeStatus){
-            state.List=state.reservedList;
+            state.List=state.reservedList
             if(completeStatus=="active")
             state.List=state.List.filter(item=>item.status=="Notchosed")
             else if(completeStatus=="complete")
