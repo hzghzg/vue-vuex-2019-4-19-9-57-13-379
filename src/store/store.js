@@ -17,10 +17,12 @@ export default new Vuex.Store({
         setFooterClickStatus(state,status){
             state.footerClickStatus=status
         },
+
         addDataToList(state,newItem){
             state.List.push(newItem)
             state.reservedList.push(newItem)
         },
+
         changeStatus(state,currentItemValue){
             let index=state.List.map(item=>item.value).indexOf(currentItemValue.value);
             if(state.List[index].status=="Notchosed"){
@@ -32,12 +34,18 @@ export default new Vuex.Store({
                 state.reservedList[index].status="Notchosed";
             }
         },
+        
         displayList(state,completeStatus){
             state.List=state.reservedList
             if(completeStatus=="active")
             state.List=state.List.filter(item=>item.status=="Notchosed")
             else if(completeStatus=="complete")
             state.List=state.List.filter(item=>item.status=="BeChosed")
+        },
+        
+        updateItem(state,previousValue,newItem){
+            let index=state.List.map(item=>item.value).indexOf(previousValue);
+            state.List.get(index).value=newItem.value;
         }
     }
 })
